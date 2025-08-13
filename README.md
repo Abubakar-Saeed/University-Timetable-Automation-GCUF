@@ -68,5 +68,5 @@ It supports **multiple timetable views** for **departments**, **semesters**, **r
 4. **Output Generation:** Creates multiple possible timetables, which can be exported or printed.
    
 ## 👨‍💻 Developer
-  Abubakar Saeed – BSCS 7th Semester, Government College University Faisalabad
+  Abubakar Saeed – BSCS (2022-2026), Government College University Faisalabad
 📧 Email: abubakarsaeed915@gmail.com
