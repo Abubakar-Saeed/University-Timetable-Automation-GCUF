@@ -61,6 +61,27 @@ Notes:
 
 The DB connection helper is implemented in `src/main/java/com/timetablexpert/dbconnection/DbConnection.java`.
 
+**Important:** `time_table_automation_backup.sql` includes the schema, sample data, and stored procedures required by the application, including the timetable generation logic used by `GenerateController`.
+
+---
+
+## Core scheduling algorithm
+
+The application generates timetables using a constraint-satisfaction style approach. It applies timetable rules and availability constraints for rooms, teachers, labs, semesters, and sections, then searches for valid combinations that avoid conflicts.
+
+The generation process is invoked through the stored procedure `GenerateTimeTableForAllSessions`, which produces fully populated timetable sets.
+
+---
+
+## Supported timetable perspectives
+
+The system can produce and export several timetable views from the generated data:
+- Semester-wise timetable
+- Room-wise timetable
+- Lab-wise timetable
+- Teacher-wise timetable
+- Department / program perspective where applicable
+
 ---
 
 ## Build the project
@@ -117,9 +138,10 @@ Option B — IDE (Eclipse/IntelliJ/VS Code):
 
 ## Features & System Modules
 
-- Automated timetable generation with conflict resolution
+- Automated timetable generation using constraint satisfaction rules
+- Multiple generated timetable perspectives: semester, room, lab, teacher, department
 - Department, Course & Semester, Faculty, Room management
-- Schedule generation and report export
+- Schedule generation and report export via JasperReports
 
 ---
 
