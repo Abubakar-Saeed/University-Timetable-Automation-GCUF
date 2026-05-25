@@ -176,10 +176,3 @@ Developer: Abubakar Saeed — abubakarsaeed915@gmail.com
 
 ---
 
-## Next actions I can take
-
-- Create `CONTRIBUTING.md` and `LICENSE` files.
-- Open a branch and push these docs for review.
-- Add a GitHub Action to build the WAR on push.
-
-If you want me to finish the merge and push the resolved README for you, say "Yes, push the merge" and I will complete the commit and push.
