@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="ISO-8859-1">
+    <title>Timetable Xpert</title>
+
+</head>
+<body>
+
+            <div class="cardBox">
+
+                <div class="card">
+                    <div>
+                        <div class="numbers" id= "programCount" > 0 </div>
+                        <div class="cardName">Total Programs</div>
+                    </div>
+                    <div class="iconBx"><ion-icon name="school-outline"></ion-icon></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers" id= "classesCount">0</div>
+                        <div class="cardName">Total Classes</div>
+                    </div>
+                    <div class="iconBx"><ion-icon name="business-outline"></ion-icon></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers" id= "rCount">0</div>
+                        <div class="cardName">Regular Teachers</div>
+                    </div>
+                    <div class="iconBx"><ion-icon name="people-outline"></ion-icon></div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers" id= "vCount">0</div>
+                        <div class="cardName">Visiting Teachers</div>
+                    </div>
+                    <div class="iconBx"><ion-icon name="person-outline"></ion-icon></div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+
+            <div class="graphBox">
+
+                <div class="box">
+                    <h3 class="graph-label">Program Distribution Overview</h3> <canvas id="polarChart" ></canvas>
+                </div>
+                <div class="box"> <canvas id="barChart" ></canvas></div>
+                <div class="box">
+                    <h3 class="graph-label">Visiting Teacher Overview</h3>
+                    <canvas id="teacherChart"></canvas>
+                </div>
+
+                <div class="box">
+                    <canvas id="roomChart"></canvas>
+                </div>
+
+            </div>
+
+
+</body>
+</html>

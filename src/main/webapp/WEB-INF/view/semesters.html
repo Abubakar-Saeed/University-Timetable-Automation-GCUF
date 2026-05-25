@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Management</title>
+
+
+
+</head>
+<body>
+
+<p class="teacherInfo">In this section you can manage semester.To ensure data integrity, the semester ID will
+    be managed automatically. Please select a row in the table to perform Enter, Update, Delete operations on semester.
+</p>
+<div class="form-container">
+    <div class="semester-table-container">
+        <table id="semester_table_view">
+            <thead>
+            <tr>
+
+                <th>Semester ID</th>
+                <th>Semester Title</th>
+                <th>Credit Hours</th>
+                <th>Batch</th>
+                <th>Capacity</th>
+
+            </tr>
+            </thead>
+
+            <div class = "tboby_container">
+                <tbody>
+                <!-- Dynamic rows added here -->
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+    <div class="form-wrapper">
+
+        <div class="input-container">
+
+
+            <div class="room-input-group">
+                <label for="semester_program_combo" >Program</label>
+                <select id="semester_program_combo">
+                    <option value="" disabled selected>Select Program</option> <!-- Placeholder option -->
+
+                </select>
+            </div>
+            <div class="semester-input-group">
+                <label for="semester_batch_combo">Batch</label>
+                <select id="semester_batch_combo">
+                    <option value="-1" disabled selected>-- Select Batch --</option>
+                    <option value="1"  >Morning</option>
+                    <option value="2"  >Replica</option>
+
+
+
+                </select>
+            </div>
+            <div class="semester-input-group">
+                <label for="semester_session_combo">Session</label>
+                <select id="semester_session_combo">
+                    <option value="" disabled selected>Select Session</option>
+
+                </select>
+            </div>
+            <div class="semester-input-group">
+                <label for="semester_combo">Semester</label>
+                <select id="semester_combo">
+
+                    <option value="-1" selected disabled>-- Select Semester --</option>
+                    <option value="1" >1st Semester</option>
+                    <option value="2" >2nd Semester</option>
+                    <option value="3" >3rd Semester</option>
+                    <option value="4" >4th Semester</option>
+                    <option value="5" >5th Semester</option>
+                    <option value="6" >6th Semester</option>
+                    <option value="7" >7th Semester</option>
+                    <option value="8" >8th Semester</option>
+
+                </select>
+            </div>
+
+            <div class="semester-input-group">
+                <label for="teacher_phone">Credit Hours</label>
+                <input type="Number" placeholder="Enter Credit Hours" id="semester_credit_hours" />
+            </div>
+            <div class="semester-input-group">
+                <label for="teacher_email">Capacity</label>
+                <input type="Number" placeholder="Enter Capacity " id="semester_capacity" />
+            </div>
+        </div>
+
+    </div>
+    <div class="semester-input-group">
+        <label for="semester_id_field" hidden>Semester ID</label>
+        <input type="text" hidden id="semester_id_field" />
+    </div>
+    <div class="button-group">
+
+        <button type="reset" id="add_semester_clear_btn" class="clear_btn">Clear</button>
+        <button type="button" id="add_semester_delete_btn" class="delete_btn" style="visibility:hidden;">Delete</button>
+        <button type="submit" id="add_semester_update_btn" class="update_btn" style="visibility:hidden;">Update</button>
+        <button type="submit" id="add_semester_add_btn" class="add_btn">Add</button>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

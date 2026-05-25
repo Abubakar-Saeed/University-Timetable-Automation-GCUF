@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs</title>
+
+
+
+</head>
+<body>
+
+            <p class="programInfo">In this section you can manage programs.To ensure data integrity, the Program ID will
+                be managed automatically. Please select a row in the table to perform Enter, Update, Delete operations on programs.
+            </p>
+
+            <div class="form-container">
+                <div class="program-table-container">
+
+                    <table id="program_table_view">
+                        <thead id="tableHead">
+                            <tr>
+                                <th data-column="id" data-order="desc">Program ID </th>
+                                <th data-column="name" data-order="desc">Program Name </th>
+                            </tr>
+                        </thead>
+                        <div class = "tboby_container">
+
+                        <tbody>
+                            <!-- Dynamic rows will be added here -->
+                        </tbody>
+                            </div>
+                    </table>
+                </div>
+
+                <form id="program_form" method="POST">
+                    <div class="input-group">
+                        <label for="add_program_text_field">Program Title</label>
+                        <input type="text" id="programName" placeholder="Enter Program Title">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" hidden id="programID">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" id="program_delete_button" class="delete_btn" >Delete</button>
+                        <button type="reset" id="program_clear_button" class="clear_btn" >Clear</button>
+
+                        <button type="submit" id="add_program_button" class="add_btn" >Add</button>
+                        <button type="submit" id="program_update_button" class="update_btn" >Update</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Management</title>
+
+
+
+</head>
+<body>
+
+<p class="teacherInfo">In this section you can manage teachers.To ensure data integrity, the teacher ID will
+    be managed automatically. Please select a row in the table to perform Enter, Update, Delete operations on teacher.
+</p>
+<div class="form-container">
+    <div class="teacher-table-container">
+        <table id="teacher_table_view">
+            <thead>
+            <tr>
+                <th>Teacher ID</th>
+                <th>Teacher Name</th>
+                <th>Phone No</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Type</th>
+
+
+            </tr>
+            </thead>
+
+            <div class = "tboby_container">
+                <tbody>
+                <!-- Dynamic rows added here -->
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+    <div class="form-wrapper-teacher">
+
+        <div class="input-container">
+
+
+            <div class="teacher-input-group">
+                <label for="teacher_program_combo" >Department</label>
+                <select id="teacher_program_combo">
+                    <option value="-1" disabled selected>-- Select Department --</option> <!-- Placeholder option -->
+
+                </select>
+            </div>
+            <div class="teacher-input-group">
+                <label for="type_combo">Type</label>
+                <select id="type_combo">
+                    <option value="-1" disabled selected>-- Select Type-- </option>
+                    <option value="0" >Regular</option> <!-- Placeholder option -->
+                    <option value="1" >Visiting</option> <!-- Placeholder option -->
+
+
+                </select>
+            </div>
+            <div class="teacher-input-group">
+                <label for="gender_combo" > Gender</label>
+                <select id="gender_combo">
+                    <option value="-1" disabled selected>-- Select Gender --</option> <!-- Placeholder option -->
+                    <option value="0" >Male</option>
+                    <option value="1" >Female</option>
+
+                </select>
+            </div>
+
+            <div class="teacher-input-group">
+                <label for="teacher_name_field">Name</label>
+                <input type="text" id="teacher_name_field" placeholder="Enter Teacher Name"/>
+            </div>
+
+
+            <div class="teacher-input-group">
+                <label for="teacher_phone">Phone</label>
+                <input type="tel" placeholder="0345-0000000" id="teacher_phone" />
+            </div>
+            <div class="teacher-input-group">
+                <label for="teacher_email">Email</label>
+                <input type="email" placeholder="Enter Email " id="teacher_email" />
+            </div>
+        </div>
+
+    </div>
+    <div class="teacher-input-group">
+        <label for="teacher_id_field" hidden>Semester ID</label>
+        <input type="text" hidden id="teacher_id_field" />
+    </div>
+    <div class="button-group">
+
+        <button type="reset" id="add_teacher_clear_btn" class="clear_btn">Clear</button>
+        <button type="button" id="add_teacher_delete_btn" class="delete_btn" style="visibility:hidden;">Delete</button>
+        <button type="submit" id="add_teacher_update_btn" class="update_btn" style="visibility:hidden;">Update</button>
+        <button type="submit" id="add_teacher_add_btn" class="add_btn">Add</button>
+    </div>
+
+</div>
+
+</body>
+</html>

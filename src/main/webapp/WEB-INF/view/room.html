@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Management</title>
+
+
+
+</head>
+<body>
+
+<p class="roomInfo">In this section you can manage room.To ensure data integrity, the room ID will
+    be managed automatically. Please select a row in the table to perform Enter, Update, Delete operations on row.
+</p>
+<div class="form-container">
+    <div class="room-table-container">
+        <table id="room_table_view">
+            <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Room Name</th>
+                <th>Capacity</th>
+                <th>Department</th>
+
+            </tr>
+            </thead>
+
+            <div class = "tboby_container">
+                <tbody>
+                <!-- Dynamic rows added here -->
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+    <div class="form-wrapper-room">
+
+        <div class="input-container">
+
+            <div class="room-input-group">
+                <label for="type_combo">Type</label>
+                <select id="room_type_combo">
+                    <option value="-1" disabled >-- Select Type --</option>
+                    <option value="1" selected>Room</option> <!-- Placeholder option -->
+                    <option value="2" >Lab</option> <!-- Placeholder option -->
+
+
+                </select>
+            </div>
+
+            <div class="room-input-group">
+                <label for="room_program_combo" >Program</label>
+                <select id="room_program_combo">
+                    <option value="-1" disabled selected>-- Select Program --</option> <!-- Placeholder option -->
+
+                </select>
+            </div>
+
+
+            <div class="room-input-group">
+                <label for="Room No" id="room_label">Room Name</label>
+                <input type="text" placeholder="Enter Room Name" id="roomNo" />
+            </div>
+            <div class="room-input-group">
+                <label for="cpacity">Capacity</label>
+                <input type="Number" placeholder="Enter Capacity " id="capacityField" />
+            </div>
+        </div>
+
+    </div>
+    <div class="room-input-group">
+
+        <label for="room_id_field" hidden>Room ID</label>
+        <input type="text" hidden id="room_id_field" />
+
+    </div>
+
+    <div class="button-group">
+
+        <button type="reset" id="add_room_clear_btn" class="clear_btn">Clear</button>
+        <button type="button" id="add_room_delete_btn" class="delete_btn" style="visibility:hidden;">Delete</button>
+        <button type="submit" id="add_room_update_btn" class="update_btn" style="visibility:hidden;">Update</button>
+        <button type="submit" id="add_room_add_btn" class="add_btn">Add</button>
+    </div>
+
+</div>
+
+</body>
+</html>

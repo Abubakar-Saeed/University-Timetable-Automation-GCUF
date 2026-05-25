@@ -1,0 +1,38 @@
+<body>
+<p class="generateInfo">
+    In this section you can generate, reset, and regenerate the timetable.
+</p>
+<div class="form-container">
+    <div class="generate-table-container">
+        <table id="generate_table_view">
+            <thead>
+            <tr>
+                <th>Time Table ID</th>
+                <th>Day</th>
+                <th>Slot</th>
+                <th>Slot Title</th>
+            </tr>
+            </thead>
+            <div class="tboby_container">
+                <tbody>
+                <!-- Dynamic rows added here -->
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+    <div class="button-group">
+        <button type="submit" id="generate_btn" class="generate_btn">Generate</button>
+        <button type="submit" id="regenerate_btn" class="regenerate_btn">Regenerate</button>
+        <button type="submit" id="reset_btn" class="reset_btn">Reset</button>
+    </div>
+</div>
+
+<!-- Overlay and Spinner -->
+<div id="overlay"></div>
+<div id="circle">
+    <div class="stick-fast"></div>
+    <div class="stick-slow"></div>
+    <div id="origin"></div>
+</div>
+</body>

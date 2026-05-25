@@ -1,0 +1,596 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+
+    --blue: #287bff;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+
+}
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 10px;
+  width: 100%; /* Adjust width if needed */
+}
+
+#logo img {
+
+  height: 70px; /* Maintain aspect ratio */
+  display: block;
+  position:relative;
+  right:7px;
+  object-fit: contain;
+  z-index:1001;
+
+
+}
+
+body {
+
+   /* min-height: 100vh;*/
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+.container {
+
+    position: relative;
+    width: 100%;
+}
+
+
+.navigation {
+
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+.navigation.active{
+
+
+    width: 80px;
+}
+.navigation ul {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+
+
+
+.navigation ul li {
+
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+
+    background-color: var(--white);
+    cursor:pointer;
+}
+
+.navigation ul li:nth-child(1) {
+
+    margin-bottom: 40px;
+    background-color:transparent;
+    pointer-events:none;
+
+
+}
+#logoImage{
+
+        cursor:pointer;
+
+}
+
+
+.navigation ul li a {
+
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+
+    color: var(--blue);
+}
+
+.navigation ul li a .icon {
+
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+
+    font-size: 1.75em;
+
+}
+.action {
+  position: relative;
+  top: 5px;
+  right: 30px;
+}
+
+.action .profile {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action .profile img {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.action .menu {
+  position: absolute;
+  top: 80px;
+  right: -10px;
+  padding: 10px 20px;
+  background: #fff;
+  width: 200px;
+  box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.5s;
+  visibility: hidden;
+  z-index:1000;
+  opacity: 0;
+}
+
+.action .menu.active {
+
+  top: 60px;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+.action .menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 28px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.action .menu h3 {
+
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px 0;
+  font-weight: 500;
+  color: #555;
+  line-height: 1.5em;
+
+}
+
+
+
+.action .menu ul li {
+
+  list-style: none;
+
+  cursor: pointer;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+
+}
+
+.action .menu ul li .icon ion-icon {
+
+  position:relative;
+  top:2px;
+  max-width: 20px;
+  margin-right: 10px;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.action .menu ul li a:hover{
+  color:red;
+  border-radius:5px;
+
+}
+.action .menu ul:hover {
+
+
+  color:red;
+
+}
+
+.action .menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.action .menu ul li:hover a {
+  color: #ff5d94;
+}
+
+
+.navigation ul li a .title {
+
+
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+
+    box-shadow: 35px 35px 0px 10px var(--white);
+    pointer-events: none;
+
+
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    background: transparent;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 35px -35px 0px 10px var(--white);
+    pointer-events: none;
+
+
+}
+
+
+#admin-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+
+}
+
+#sessions-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+
+}
+#semesters-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+#courses-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+#teachers-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+}
+#rooms-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+#allocate-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+#generate-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+#print-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+
+}
+
+#print-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+}
+
+.topbar {
+
+
+    width:  calc(100% - 300px);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    left: 300px;
+    height: 70px;
+    padding: 0 10px;
+  transition: 0.5s;
+
+
+}
+
+.topbar.active{
+
+  width: calc(100% - 80px);
+  left: 80px;
+  transition: 0.5s;
+
+}
+.toggle{
+
+    position: relative;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+
+
+}
+
+.search {
+
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search label {
+
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search label input {
+
+    padding: 5px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    outline: none;
+    padding-left: 35px;
+    font-size:18px;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon{
+
+    position: absolute;
+    left: 10px;
+    font-size: 1.2em;
+
+}
+
+
+
+/* Responsive  */
+
+@media (max-width: 991px){
+
+
+.action .profile {
+
+  width: 40px;
+  height: 40px;
+  left:30px;
+  top:8px;
+
+}
+    .navigation{
+
+        left: -300px;
+    }
+    .navigation.active{
+
+        width: 300px;
+        left: 0;
+    }
+     .topbar{
+
+            width: 100%;
+            left: 0;
+        }
+       .topbar.active{
+
+            left: 300px;
+        }
+
+}
+@media (max-width: 480px){
+
+#logo img {
+
+
+  right:281px;
+
+
+}
+
+    .navigation{
+
+        width: 100%;
+        left: -100%;
+        z-index: 1000;
+    }
+    .navigation.active{
+
+        width: 100%;
+        left: 0;
+    }
+    .toggle{
+
+        z-index: 1001;
+    }
+     .topbar.active .toggle{
+
+            position: fixed;
+            color: var(--white);
+        }
+
+}
+@media (max-height: 750px){
+
+    .navigation{
+
+        overflow-y: auto;
+    }
+}
+
+/* Session Form*/
+
+#sessions-section{
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+
+}
+#sessions-section.active{
+
+
+    width: calc(100% - 80px);
+    left: 80px;
+
+}
+#admin-section.active{
+
+
+    width: calc(100% - 80px);
+    left: 80px;
+
+}

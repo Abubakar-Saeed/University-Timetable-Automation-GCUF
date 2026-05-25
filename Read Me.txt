@@ -1,0 +1,4 @@
+First execute the backup file in MySQL database
+name: root
+password: root
+then execute project

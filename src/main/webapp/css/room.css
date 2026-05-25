@@ -1,0 +1,298 @@
+#rooms-section {
+
+
+      position: absolute;
+      width: calc(100% - 300px);
+      left: 300px;
+      min-height: 100vh;
+      background-color: var(--white);
+      transition: 0.5s;
+
+
+}
+
+#rooms-section.active{
+
+
+    width: calc(100% - 80px);
+    left: 80px;
+}
+   .roomInfo{
+
+     padding: 30px;
+     font-size: 16px;
+     color: var(--black2);
+     font-family: 'Arial', sans-serif;
+ }
+
+.form-wrapper-room {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--grey);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.room-table-container{
+
+
+
+   width: 80%;
+    margin: 0 auto;
+    max-height: 500px; /* Set a height limit for the scrollable area */
+    border: 1px solid var(--black2);
+    overflow: auto;
+}
+
+.input-container {
+
+    display: grid;
+     grid-template-columns: repeat(2, 1fr); /* Change to 3 equal columns */
+    gap: 20px; /* Adds space between input groups */
+    width: 100%;
+}
+
+#room_table_view{
+
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better aesthetics */
+    transition: transform 0.3s ease;
+
+}
+
+
+#room_table_view th, #room_table_view td {
+
+    padding: 12px 15px;
+    border: 1px solid var(--black2);
+    text-align: center;
+}
+
+#room_table_view th {
+
+
+
+        position: sticky;
+        top:0;
+        background-color: var(--blue);
+        color: var(--white);
+
+}
+
+#room_table_view tbody{
+
+    margin-top: 50px;
+}
+#room_table_view tbody tr:hover {
+
+    background-color: var(--blue);
+        color: var(--white);
+        cursor: pointer;
+        transform: scale(1.01); /* Slight zoom effect on hover */
+}
+.selected-row {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.room-input-group {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+.room-input-group label {
+
+    font-weight: 500;
+    font-size: 18px;
+
+    margin-bottom: 15px; /* Space between label and input */
+    width: 90%; /* Width of the label (adjust as needed) */
+    text-align: start;
+}
+
+.room-input-group input, .room-input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--black2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%; /* Adjusts input width based on remaining space */
+}
+
+.room-input-group input:focus, .room-input-group select:focus {
+    border-color: var(--blue); /* Highlight color */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+}
+
+.button-group {
+
+       display: flex;
+       width: 50%;
+       margin-top: 30px;
+       justify-content: space-between;
+}
+
+.clear_btn, .delete_btn, .update_btn, .add_btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.clear_btn { background-color: var(--black2); }
+.delete_btn { background-color: #ff4d4d; }
+.update_btn { background-color: var(--blue); }
+.add_btn { background-color: #4caf50; }
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+
+    #rooms-section {
+
+        width: 100%;
+        left: 0;
+    }
+
+    #rooms-section.active {
+
+        left: 300px;
+
+    }
+
+
+    .input-container {
+        grid-template-columns: 1fr; /* Stack fields on smaller screens */
+    }
+    .room-input-group label {
+
+        text-align: left; /* Align text to the left on small screens */
+        width: 89%; /* Label takes full width */
+        margin-bottom: 8px; /* Add space below label */
+    }
+    .room-input-group {
+        flex-direction: column; /* Stack label and input vertically */
+    }
+    .button-group {
+        flex-direction: column;
+
+        align-items: center;
+        gap: 10px;
+    }
+    .button-group button {
+        width: 65%; /* Full width on small screens */
+    }
+
+    .room-table-container{
+        width: 95%; /* Reduce table width */
+    }
+
+    .input-group {
+        width: 100%; /* Full width for input groups */
+    }
+
+
+    .button-group {
+        width: 100%; /* Full width for button group */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Stretch buttons to full width */
+    }
+
+    .button-group button {
+        margin-bottom: 10px; /* Margin between buttons */
+        width: 100%; /* Full width for buttons */
+    }
+}
+@media (max-width: 480px) {
+
+
+    .input-container {
+        grid-template-columns: 1fr; /* Stack fields on smaller screens */
+    }
+    .room-input-group label {
+
+        text-align: left; /* Align text to the left on small screens */
+        width: 90%; /* Label takes full width */
+        margin-bottom: 5px; /* Add space below label */
+    }
+    .room-input-group {
+        flex-direction: column; /* Stack label and input vertically */
+    }
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .button-group button {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .form-container {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .room-table-container{
+        width: 90%; /* Slightly reduce table width */
+    }
+
+    #room_table_view th,
+    #room_table_view td {
+
+        padding: 8px; /* Reduce padding for table cells */
+        font-size: 14px; /* Smaller font size for table */
+    }
+
+    .input-group {
+        width: 100%; /* Full width for input groups */
+    }
+
+    .input-group label {
+        width: 100%; /* Full width for labels */
+    }
+
+    .input-group input {
+
+        width: 100%; /* Full width for inputs */
+
+    }
+
+    .button-group {
+
+        width: 100%; /* Full width for button group */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Stretch buttons to full width */
+    }
+
+    .button-group button {
+
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+      #room-section.active .toggle{
+
+            position: fixed;
+            color: var(--white);
+        }
+}
+
+@media (max-height: 750px){
+
+
+    .room-table-container {
+           max-height: 300px;
+       }
+}

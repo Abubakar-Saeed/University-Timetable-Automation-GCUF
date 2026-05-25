@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocate Course Management</title>
+
+
+</head>
+<body>
+
+<p class="courseInfo">In this section you can manage course.To ensure data integrity, the course ID will
+    be managed automatically. Please select a row in the table to perform Enter, Update, Delete operations on course.
+</p>
+<div class="anchor-pane main-bg">
+    <div>
+        <label class="label white-text bold-text" >Semester: <span id="semester_title_header"></span></label>
+    </div>
+    <div>
+        <label class="label white-text bold-text" >Course Hours: <span id="allocate_header" >0</span></label>
+    </div>
+    <div>
+        <label class="label white-text bold-text" >Total Credit Hours: <span id="total_header">0</span></label>
+    </div>
+</div>
+<div class="form-container">
+    <div class="course-table-container">
+        <table id="course_table_view">
+            <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Code</th>
+                <th>Course Title</th>
+                <th>Credit Hours</th>
+                <th>Program</th>
+                <th>Semester</th>
+            </tr>
+            </thead>
+
+            <div class = "tboby_container_course">
+                <tbody>
+                <!-- Dynamic rows added here -->
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+
+    <div class="form-wrapper-course">
+
+        <div class="input-container">
+
+
+            <div class="course-input-group">
+                <label for="course_program_combo" >Program</label>
+                <select id="course_program_combo">
+                    <option value="-1" disabled selected>-- Select Program --</option> <!-- Placeholder option -->
+
+                </select>
+            </div>
+
+            <div class="course-input-group">
+                <label for="course_semester_combo">Semester</label>
+                <select id="course_semester_combo">
+                    <option value="-1" disabled selected>-- Select Semester -- </option> <!-- Placeholder option -->
+
+
+
+
+                </select>
+            </div>
+
+
+            <div class="course-input-group">
+                <label for="course_cr_combo" >Credit Hours</label>
+                <select id="course_cr_combo">
+
+                    <option value="" disabled selected>--Select Credit Hours--</option> <!-- Placeholder option -->
+                    <option value="0">1-0</option>
+                    <option value="1">2-0</option>
+                    <option value="2">3-0</option>
+                    <option value="3">2-1</option>
+                    <option value="4">3-1</option>
+                    <option value="5">4-0</option>
+                    <option value="6">0-2</option>
+
+                </select>
+            </div>
+
+
+
+            <div class="course-input-group">
+                <label for="course_code_field">Course Code</label>
+                <input type="text" placeholder="Enter Course Code" id="course_code_field" />
+            </div>
+
+            <div class="course-input-group">
+                <label for="course_title">Course Title</label>
+                <input type="text" placeholder="Enter Course Title" id="course_title_field" />
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="course-input-group">
+        <label for="course_id_field" hidden>Course ID</label>
+        <input type="text" hidden id="course_ID_field" />
+    </div>
+    <div class="button-group">
+
+        <button type="reset" id="add_course_clear_btn" class="clear_btn">Clear</button>
+        <button type="button" id="add_course_delete_btn" class="delete_btn" style="visibility:hidden;">Delete</button>
+        <button type="submit" id="add_course_update_btn" class="update_btn" style="visibility:hidden;">Update</button>
+        <button type="submit" id="add_course_add_btn" class="add_btn">Add</button>
+
+    </div>
+
+</div>
+
+<script src=""></script>
+</body>
+</html>

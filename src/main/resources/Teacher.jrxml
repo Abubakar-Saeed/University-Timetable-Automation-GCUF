@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Semester" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="594582f6-0e9a-4434-9329-1f945c0c27ec">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<style name="Table_TH" mode="Opaque" forecolor="#DEC1C1" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" forecolor="#FFFFFF" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<leftPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<rightPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="SemesterDataset" uuid="7d1ac171-292f-44c0-9652-557cd0fdde73">
+		<property name="com.jaspersoft.studio.data.sql.tables" value="dGltZV90YWJsZV9hdXRvbWF0aW9uLmFsbHRlYWNoZXJ0aW1ldGFibGUgQVMgLDM0Myw0OSwzNWJl&#xA;NzFhZS0xZDAwLTQ3MzYtODRmMC0xNjNjN2I5MWUwNGE7&#xA;"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="1000"/>
+		<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="0"/>
+		<parameter name="semesterID" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT time_table_automation.allteachertimetable.`TIME`,
+	time_table_automation.allteachertimetable.`MONDAY`,
+	time_table_automation.allteachertimetable.`TUESDAY`,
+	time_table_automation.allteachertimetable.`WEDNESDAY`,
+	time_table_automation.allteachertimetable.`THURSDAY`,
+	time_table_automation.allteachertimetable.`FRIDAY`,
+	time_table_automation.allteachertimetable.`TEACHERID`
+FROM time_table_automation.allteachertimetable
+WHERE 
+	 time_table_automation.allteachertimetable.`TEACHERID` = '$P!{semesterID}']]>
+		</queryString>
+		<field name="TIME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="TIME"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="MONDAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="MONDAY"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="TUESDAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="TUESDAY"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="WEDNESDAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="WEDNESDAY"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="THURSDAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="THURSDAY"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="FRIDAY" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="FRIDAY"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+		<field name="TEACHERID" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="TEACHERID"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+		</field>
+	</subDataset>
+	<parameter name="ID" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT time_table_automation.allteachertimetable.`programID`,
+	time_table_automation.timetbltable.`programID`,
+	time_table_automation.timetbltable.season,
+	time_table_automation.timetbltable.`programName`,
+	time_table_automation.allteachertimetable.`TEACHERNAME`,
+	time_table_automation.allteachertimetable.`TEACHERID`
+FROM time_table_automation.timetbltable
+	INNER JOIN time_table_automation.allteachertimetable ON 
+	 time_table_automation.allteachertimetable.`programID` = time_table_automation.timetbltable.`programID` 
+WHERE 
+	 time_table_automation.allteachertimetable.`TEACHERID` = '$P!{ID}'
+	 limit 1]]>
+	</queryString>
+	<field name="programID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="programID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+	</field>
+	<field name="COLUMN_2" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="programID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="timetbltable"/>
+	</field>
+	<field name="season" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="season"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="timetbltable"/>
+	</field>
+	<field name="programName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="programName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="timetbltable"/>
+	</field>
+	<field name="TEACHERNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TEACHERNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+	</field>
+	<field name="TEACHERID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="TEACHERID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="allteachertimetable"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="129">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement x="-20" y="29" width="814" height="98" uuid="8c384550-ddc9-4fcd-8c95-0f378a4ca38c"/>
+				<staticText>
+					<reportElement x="130" y="-2" width="683" height="30" uuid="5ab02dd5-dfe2-4daa-8f31-563fc7b1d3bf"/>
+					<textElement>
+						<font fontName="Calibri" size="20" isBold="true" isUnderline="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Institute of Arts and Sciences (Chiniot Campus) Govt College University Faisalabad]]></text>
+				</staticText>
+				<image>
+					<reportElement x="33" y="12" width="95" height="113" uuid="7c86a90f-7dcc-4061-a3b9-499c4329cd2f"/>
+					<imageExpression><![CDATA["/gcuf logo.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="132" y="74" width="92" height="29" uuid="a4345293-e43e-4e18-9263-6ac096bb232c">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Department: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="353" y="74" width="60" height="23" uuid="591ed18e-5ee2-4582-ab2c-d2d5672c70a7">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Name: ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="644" y="74" width="50" height="23" uuid="eee6e4fd-9f16-4d97-8b17-8df031830ce9">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[Dated: ]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="688" y="74" width="125" height="19" uuid="32254ff6-2470-4b81-a3c7-6249dd83a657">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isUnderline="true" pdfFontName="/Calibri.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="250" y="30" width="390" height="22" uuid="ad872252-cdcd-4bf8-ad50-dc6c44c4f54e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="17" isBold="true" isUnderline="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{season}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="398" y="74" width="217" height="23" uuid="986d522c-5336-4a2e-9b1c-d4a8ab039f4a">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isUnderline="true" pdfFontName="/Calibri.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TEACHERNAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="216" y="74" width="160" height="30" uuid="23da8c24-5d6b-4408-b333-35c2b5504729">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Calibri" size="15" isUnderline="true" pdfFontName="/Calibri.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{programName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="126">
+			<componentElement>
+				<reportElement x="12" y="0" width="781" height="78" uuid="bb5b02ad-a5d7-4479-b08c-391a777abff4">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+					<property name="com.jaspersoft.studio.components.autoresize.next" value="true"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="SemesterDataset" uuid="b5967585-bb67-41ef-b184-0d005233fde5">
+						<datasetParameter name="semesterID">
+							<datasetParameterExpression><![CDATA[$P{ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="106" uuid="e18f5f9f-3e3d-4eb6-bcfc-9c4e6af5c72e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="106" height="30" forecolor="#FFFFFF" uuid="2a13cd4b-5f69-49ea-90d6-56b092007cc6"/>
+								<box>
+									<pen lineColor="#FFFFFF"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Time / Day]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="106" height="70" uuid="040d4db1-cb55-40bd-a940-fff857e5ada5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+									<font fontName="Calibri" size="13" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{TIME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="136" uuid="ddebcdb0-8bd5-446a-a51e-26e484f50555">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="136" height="30" forecolor="#FFFFFF" uuid="ed3c1939-4910-49fe-b256-20989a026d35"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Monday]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="136" height="70" uuid="cbe8efb3-1251-412f-af15-066c1e4e1794"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="10" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MONDAY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="136" uuid="a39e2c51-b9cc-455b-a52a-e97450833518">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="136" height="30" forecolor="#FFFFFF" uuid="990dd08f-b9d4-436f-97d6-472bc6559f47"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Tuesday]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="136" height="70" uuid="7b321b83-634a-4b66-8861-2815016d018b"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="10" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{TUESDAY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="135" uuid="62a51107-1f4a-4991-b20e-3f5b2f51939e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="135" height="30" forecolor="#FFFFFF" uuid="a7d95553-d8f5-4168-86a1-0900fbbf7307"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Wednesday]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="135" height="70" uuid="84e3a96a-5e9f-4c93-b305-2ca9f40caa12"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="10" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{WEDNESDAY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="134" uuid="a3d8fe4e-6c5f-452f-a5fb-60ba1fa83a0e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="134" height="30" forecolor="#FFFFFF" uuid="52c216b2-e140-4b22-8955-d78733dbfc1d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Thursday]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="134" height="70" uuid="a3a6fdc6-01c0-43c6-a8ed-5c84962507bc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="10" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{THURSDAY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="134" uuid="446f2e25-25ae-49b4-9e50-ee9d02e35f76">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="134" height="30" forecolor="#FFFFFF" uuid="fc7a84ea-d56e-4531-9312-7b293fa1653c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Calibri" size="15" isBold="true" pdfFontName="/calibrib.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+								</textElement>
+								<text><![CDATA[Friday]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="70">
+							<box>
+								<pen lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true">
+								<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="134" height="70" uuid="42f9b5ce-aa47-438f-a3c5-10e1e00e32f0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="SansSerif" size="10" isUnderline="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{FRIDAY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

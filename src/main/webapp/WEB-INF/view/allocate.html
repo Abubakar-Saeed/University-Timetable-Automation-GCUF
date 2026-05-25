@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Management</title>
+
+
+
+</head>
+<body>
+
+<p class="courseInfo">In this section you can allocate course to teachers.To ensure data integrity, the allocate ID will
+  be managed automatically. Please select a row in the table to perform Enter, Delete operations on allocate course.
+</p>
+
+<div class="anchor-pane main-bg">
+  <div>
+    <label class="label white-text bold-text" >Semester: <span id="allocate_title_header">BS-CS</span></label>
+  </div>
+  <div>
+    <label class="label white-text bold-text" >Allocated Hours: <span id="allocate_cr_header">0</span></label>
+  </div>
+  <div>
+    <label class="label white-text bold-text" >Total Credit Hours: <span id="total_cr_header">0</span></label>
+  </div>
+</div>
+<div class="form-container">
+  <div class="allocate-table-container">
+    <table id="allocate_table_view">
+
+
+      <thead>
+      <tr>
+        <th>Subject ID</th>
+        <th>Subject Title</th>
+        <th>Batch</th>
+        <th>Lab</th>
+
+
+      </tr>
+      </thead>
+
+      <div class = "tboby_container_course">
+        <tbody>
+        <!-- Dynamic rows added here -->
+        </tbody>
+      </div>
+    </table>
+  </div>
+
+
+  <div class="form-wrapper-allocate">
+
+    <div class="input-container-allocate">
+
+
+      <div class="allocate-input-group">
+        <label for="alocate_program_combo" >Program</label>
+        <select id="allocate_program_combo">
+          <option value="-1" disabled selected> --Select Program--</option> <!-- Placeholder option -->
+
+        </select>
+      </div>
+
+      <div class="allocate-input-group">
+        <label for="alocate_batch_combo" >Batch</label>
+        <select id="allocate_batch_combo">
+          <option value="-1" disabled selected> --Select Batch--</option> <!-- Placeholder option -->
+
+           <option value="1"  >Morning</option>
+           <option value="2"  >Replica</option>
+        </select>
+      </div>
+
+
+      <div class="allocate-input-group">
+        <label for="course_semester_combo">Semester</label>
+        <select id="allocate_semester_combo">
+          <option value="-1" disabled selected>--Select Semester--</option> <!-- Placeholder option -->
+
+
+
+
+        </select>
+      </div>
+
+      <div class="allocate-input-group">
+        <label for="course_combo" >Course</label>
+        <select id="course_combo">
+          <option value="-1" disabled selected>--Select Course--</option> <!-- Placeholder option -->
+
+        </select>
+
+
+      </div>
+      <div class="allocate-input-group">
+        <label for="type_combo">Type</label>
+        <select id="allocate_type_combo">
+          <option value="-1" disabled selected>--Select Type--</option>
+          <option value="0" >Regular</option> <!-- Placeholder option -->
+          <option value="1" >Visiting</option> <!-- Placeholder option -->
+
+
+        </select>
+      </div>
+
+      <div class="allocate-input-group">
+        <label for="teacher_combo">Teacher</label>
+        <select id="teacher_combo">
+          <option value="-1" disabled selected>--Select Teacher--</option>
+
+        </select>
+      </div>
+
+      <div class="allocate-input-group">
+        <label for="lab_combo">Lab</label>
+        <select id="lab_combo">
+          <option value="-1" disabled selected>--Select Lab--</option>
+
+        </select>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="allocate-input-group">
+    <label for="allocate_id_field" hidden>Subject ID</label>
+    <input type="text" hidden id="allocate_ID_field" />
+  </div>
+  <div class="button-group">
+
+    <button type="reset" id="add_allocate_clear_btn" class="clear_btn">Clear</button>
+    <button type="button" id="add_allocate_delete_btn" class="delete_btn" style="visibility:hidden;">Delete</button>
+    <button type="submit" id="add_allocate_add_btn" class="add_btn">Add</button>
+  </div>
+
+</div>
+
+</body>
+</html>

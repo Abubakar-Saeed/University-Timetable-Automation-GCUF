@@ -1,0 +1,431 @@
+#allocate-section {
+
+
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: var(--white);
+    transition: 0.5s;
+
+
+}
+
+#allocate-section.active {
+
+
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.allocateInfo {
+
+    padding: 30px;
+    font-size: 16px;
+    color: var(--black2);
+    font-family: 'Arial', sans-serif;
+}
+
+.form-wrapper-allocate {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--grey);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    /* Distribute space evenly */
+    align-items: center;
+    /* Align items vertically in the center */
+    width: 100%;
+    height: 50px;
+    /* Adjust height if necessary */
+    background-color: #1e3a8a;
+    /* Main background color */
+    padding: 10px 20px;
+    /* Add padding for better spacing */
+}
+
+.label {
+    font-size: 16px;
+    /* Adjust font size for better readability */
+    color: white;
+    /* White text */
+    font-weight: bold;
+    /* Bold text */
+    margin-right: 20px;
+    /* Space between labels */
+}
+
+.white-text {
+
+    color: white;
+}
+
+.bold-text {
+
+    font-weight: bold;
+}
+
+.allocate-table-container {
+
+
+
+    width: 80%;
+    margin: 0 auto;
+    max-height: 500px;
+    /* Set a height limit for the scrollable area */
+    border: 1px solid var(--black2);
+    overflow: auto;
+    margin-top: 20px;
+}
+
+.input-container-allocate {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Change to 3 equal columns */
+
+    gap: 20px;
+    /* Adds space between input groups */
+    width: 100%;
+}
+
+#allocate_table_view {
+
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add shadow for better aesthetics */
+    transition: transform 0.3s ease;
+
+}
+
+
+#allocate_table_view th,
+#allocate_table_view td {
+
+    padding: 12px 15px;
+    border: 1px solid var(--black2);
+    text-align: center;
+}
+
+#allocate_table_view th {
+
+
+    position: sticky;
+    top: 0;
+    background-color: var(--blue);
+    color: var(--white);
+
+}
+
+#allocate_table_view tbody {
+    margin-top: 50px;
+}
+
+#allocate_table_view tbody tr:hover {
+
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    transform: scale(1.01);
+    /* Slight zoom effect on hover */
+}
+
+.selected-row {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.allocate-input-group {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+.allocate-input-group label {
+
+    font-weight: 500;
+    font-size: 18px;
+
+    margin-bottom: 15px;
+    /* Space between label and input */
+    width: 90%;
+    /* Width of the label (adjust as needed) */
+    text-align: start;
+}
+
+.allocate-input-group input,
+.allocate-input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--black2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    /* Adjusts input width based on remaining space */
+}
+
+.allocate-input-group input:focus,
+.allocate-input-group select:focus {
+    border-color: var(--blue);
+    /* Highlight color */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+}
+
+.button-group {
+
+    display: flex;
+    width: 50%;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.clear_btn,
+.delete_btn,
+.update_btn,
+.add_btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.clear_btn {
+    background-color: var(--black2);
+}
+
+.delete_btn {
+    background-color: #ff4d4d;
+}
+
+.update_btn {
+    background-color: var(--blue);
+}
+
+.add_btn {
+    background-color: #4caf50;
+
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .header {
+
+        flex-direction: row;
+        /* Stack the items vertically on smaller screens */
+        height: auto;
+        /* Allow height to adjust based on content */
+
+        padding: 15px;
+        /* Increase padding for smaller devices */
+    }
+
+    .label {
+        font-size: 14px;
+        /* Reduce font size slightly for small screens */
+        margin-right: 0;
+        margin-bottom: 10px;
+        /* Add space between labels vertically */
+    }
+
+    #allocate-section {
+
+        width: 100%;
+        left: 0;
+    }
+
+    #allocate-section.active {
+
+        left: 300px;
+    }
+
+
+    .input-container-allocate {
+        grid-template-columns: 1fr;
+        /* Stack fields on smaller screens */
+    }
+
+    .allocate-input-group label {
+
+        text-align: left;
+        /* Align text to the left on small screens */
+        width: 89%;
+        /* Label takes full width */
+        margin-bottom: 8px;
+        /* Add space below label */
+    }
+
+    .allocate-input-group {
+        flex-direction: column;
+        /* Stack label and input vertically */
+    }
+
+    .button-group {
+        flex-direction: column;
+
+        align-items: center;
+        gap: 10px;
+    }
+
+    .button-group button {
+        width: 65%;
+        /* Full width on small screens */
+    }
+
+    .allocate-table-container {
+        width: 95%;
+        /* Reduce table width */
+    }
+
+    .input-group {
+        width: 100%;
+        /* Full width for input groups */
+    }
+
+
+    .button-group {
+        width: 100%;
+        /* Full width for button group */
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: stretch;
+        /* Stretch buttons to full width */
+    }
+
+    .button-group button {
+        margin-bottom: 10px;
+        /* Margin between buttons */
+        width: 100%;
+        /* Full width for buttons */
+    }
+}
+
+@media (max-width: 480px) {
+
+
+    .header {
+
+        gap: 10px;
+        padding: 10px;
+        /* Further reduce padding for mobile */
+    }
+
+    .label {
+        font-size: 12px;
+        /* Smaller font size for mobile */
+    }
+
+    .input-container-allocate {
+        grid-template-columns: 1fr;
+        /* Stack fields on smaller screens */
+    }
+
+    .allocate-input-group label {
+
+        text-align: left;
+        /* Align text to the left on small screens */
+        width: 90%;
+        /* Label takes full width */
+        margin-bottom: 5px;
+        /* Add space below label */
+    }
+
+    .allocate-input-group {
+        flex-direction: column;
+        /* Stack label and input vertically */
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button-group button {
+        width: 100%;
+        /* Full width on small screens */
+    }
+
+    .form-container {
+
+        padding: 15px;
+        /* Reduce padding for smaller screens */
+    }
+
+    .allocate-table-container {
+
+        width: 90%;
+        /* Slightly reduce table width */
+    }
+
+    #course th,
+    #course td {
+        padding: 8px;
+        /* Reduce padding for table cells */
+        font-size: 14px;
+        /* Smaller font size for table */
+    }
+
+    .input-group {
+        width: 100%;
+        /* Full width for input groups */
+    }
+
+    .input-group label {
+        width: 90%;
+        /* Full width for labels */
+    }
+
+    .input-group input {
+
+        width: 100%;
+        /* Full width for inputs */
+
+    }
+
+    .button-group {
+
+        width: 100%;
+        /* Full width for button group */
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: stretch;
+        /* Stretch buttons to full width */
+    }
+
+    .button-group button {
+
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #semester-section.active .toggle {
+
+        position: fixed;
+        color: var(--white);
+    }
+}
+
+@media (max-height: 750px) {
+
+    .allocate-table-container {
+        max-height: 300px;
+    }
+}
