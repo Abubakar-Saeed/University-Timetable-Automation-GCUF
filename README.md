@@ -1,23 +1,30 @@
-# TimetableXpert — University Timetable Automation
+# 📅 TimetableXpert – University Timetable Automation (GCUF)
 
-This repository contains TimetableXpert, a Java web application (WAR) for automating university timetabling. This README provides setup, build, database restore, deployment, contribution, and troubleshooting guidance so you (and other contributors) can run and maintain the project.
+A Java-based automated timetable generation system for Government College University Faisalabad (GCUF). This repository contains the TimetableXpert web application (WAR) and supporting files.
+
+---
+
+## ✨ Highlights
+- Automated timetable generation with conflict avoidance (rooms, teachers, student groups).
+- Multiple views: department, semester, room, teacher.
+- Printable/exportable reports via JasperReports.
+- Tech: Java Servlets / JSP, Maven, MySQL, JasperReports.
 
 ---
 
 ## Project overview
 
 - Artifact: `TimetableXpert` (WAR)
-- Frameworks / tech: Java Servlets / JSP, Maven, MySQL, JasperReports
-- Primary code location: `src/main/java/com/timetablexpert` and `src/main/webapp`
+- Primary code: `src/main/java/com/timetablexpert` and `src/main/webapp`
 
 ---
 
 ## Prerequisites
 
-- Java JDK 11+ (recommended JDK 17 if available)
+- Java JDK 11+ (JDK 17 recommended)
 - Apache Maven (3.6+)
-- MySQL Server (8.x recommended) or compatible
-- A servlet container (Apache Tomcat 9/10 or similar)
+- MySQL Server (8.x recommended)
+- Apache Tomcat 9/10 or similar servlet container
 - Optional: MySQL Workbench or phpMyAdmin for DB import
 
 ---
@@ -41,16 +48,16 @@ EXIT
 mysql -u root -p time_table_automation < "E:\TimetableXpert Project\Website\TimetableXpert\time_table_automation_backup.sql"
 ```
 
-If `mysql` is not in your PATH use its full path, for example:
+If `mysql` is not on your PATH use its full path, for example:
 
 ```powershell
 & "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p time_table_automation < "E:\TimetableXpert Project\Website\TimetableXpert\time_table_automation_backup.sql"
 ```
 
 Notes:
-- Default DB credentials the app uses (unless overridden) are `root` / `root`.
-- You can override JDBC connection values using system properties at runtime: `JDBC_URL`, `JDBC_USERNAME`, `JDBC_PASSWORD`.
-  - Example `JDBC_URL`: `jdbc:mysql://localhost:3306/time_table_automation`
+- Default DB credentials used by the app (unless overridden) are `root` / `root`.
+- Override JDBC connection values using system properties at runtime: `JDBC_URL`, `JDBC_USERNAME`, `JDBC_PASSWORD`.
+  - Example: `jdbc:mysql://localhost:3306/time_table_automation`
 
 The DB connection helper is implemented in `src/main/java/com/timetablexpert/dbconnection/DbConnection.java`.
 
@@ -64,7 +71,7 @@ From the project root run:
 mvn clean package
 ```
 
-This will produce the WAR at:
+This produces the WAR at:
 
 ```
 target/TimetableXpert-1.0-SNAPSHOT.war
@@ -88,78 +95,69 @@ To deploy at the root context, rename the WAR to `ROOT.war` before copying it to
 
 Option B — IDE (Eclipse/IntelliJ/VS Code):
 
-- Use the IDE's Tomcat / application server support to deploy the `war` or the exploded webapp.
-
----
-
-## Running with overridden DB properties
-
-You can pass system properties to the JVM or Tomcat to override DB defaults. Example Tomcat `setenv` (Windows `setenv.bat` or using service configuration):
-
-```bash
--DJDBC_URL="jdbc:mysql://dbhost:3306/time_table_automation"
--DJDBC_USERNAME="dbuser"
--DJDBC_PASSWORD="dbpass"
-```
-
-When running with `mvn tomcat7:run` or similar plugin, pass `-D` properties to Maven.
+- Use the IDE's Tomcat/application server support to deploy the WAR or exploded webapp.
 
 ---
 
 ## Verifying the application
 
-- After deployment, try logging in via the login page (`index.jsp` / `login.jsp`).
-- If database connections fail, check Tomcat logs and the DB server status.
+- After deployment, try logging in via `index.jsp` / `login.jsp`.
+- If DB connections fail, check Tomcat logs and MySQL status.
 
 ---
 
 ## Project structure (high-level)
 
 - `src/main/java` — Java sources
-- `src/main/webapp` — JSPs, static assets (`css`, `js`)
+- `src/main/webapp` — JSPs and static assets (`css`, `js`)
 - `target/` — built artifacts
-- `time_table_automation_backup.sql` — DB backup to restore
+- `time_table_automation_backup.sql` — DB backup
 
 ---
 
-## Contribution & pushing to GitHub
+## Features & System Modules
 
-If you want to push this project to the repository `https://github.com/Abubakar-Saeed/University-Timetable-Automation-GCUF`, suggested steps:
+- Automated timetable generation with conflict resolution
+- Department, Course & Semester, Faculty, Room management
+- Schedule generation and report export
+
+---
+
+## Contribution & push guidelines
+
+To add and push changes to the GitHub repository `https://github.com/Abubakar-Saeed/University-Timetable-Automation-GCUF`:
 
 ```bash
-# initialize git (if not already)
-git init
 git add .
-git commit -m "Add project files and README"
-# add remote (replace if different)
-git remote add origin https://github.com/Abubakar-Saeed/University-Timetable-Automation-GCUF.git
-git branch -M main
-git push -u origin main
+git commit -m "Describe your change"
+git pull origin main --rebase
+git push origin main
 ```
 
-If the repo already exists and you only want to push a new branch, use `git pull` first to avoid conflicts.
+If the remote has unrelated history, use `git pull --allow-unrelated-histories` to merge, resolve conflicts, then commit and push.
 
 ---
 
 ## Troubleshooting
 
-- `java.sql.SQLException` on startup: verify MySQL is running and credentials match.
-- `ClassNotFoundException: com.mysql.cj.jdbc.Driver`: ensure MySQL Connector/J is available (the project includes it in `pom.xml`), or check classpath if running differently.
-- Ports: Tomcat default port is `8080` — ensure nothing else is blocking it.
+- `java.sql.SQLException`: verify MySQL credentials and that `time_table_automation` exists.
+- `ClassNotFoundException: com.mysql.cj.jdbc.Driver`: ensure MySQL Connector/J is available (configured in `pom.xml`).
+- Git push errors: run `git pull` to sync with remote and resolve conflicts.
 
 ---
 
-## License & contacts
+## License & Contacts
 
-- Add your preferred license file (`LICENSE`) to the repo if you want to make the project public.
-- For questions, contact the maintainer (add details here).
+Add a `LICENSE` file to specify the project license.
+
+Developer: Abubakar Saeed — abubakarsaeed915@gmail.com
 
 ---
 
-## Next steps I can do for you
+## Next actions I can take
 
-- Add a `CONTRIBUTING.md` and `LICENSE` file.
-- Create a minimal `.github/workflows/ci.yml` to build the WAR on push.
-- Commit and push the README for you if you want.
+- Create `CONTRIBUTING.md` and `LICENSE` files.
+- Open a branch and push these docs for review.
+- Add a GitHub Action to build the WAR on push.
 
-If you want, I can commit the README and open a branch or push directly to the provided GitHub repo — tell me how you'd like to proceed.
+If you want me to finish the merge and push the resolved README for you, say "Yes, push the merge" and I will complete the commit and push.
